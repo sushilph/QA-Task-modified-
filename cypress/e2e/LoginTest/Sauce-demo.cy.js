@@ -32,28 +32,29 @@ describe('Sauce Demo - Comprehensive Tests', () => {
             cy.get('#user-name').type('standard_user')
             cy.get('#password').type('secret_sauce')
             cy.get('#login-button').click()
-
+            
             // 2. Add Product to Cart
             cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
             cy.get('.shopping_cart_badge').should('have.text', '1')
-
+            
             // 3. Verify Cart & Start Checkout
             cy.get('.shopping_cart_link').click()
             cy.get('.inventory_item_name').should('have.text', 'Sauce Labs Backpack')
             cy.get('[data-test="checkout"]').click()
-
+            
             // 4. Enter User Information
             cy.get('[data-test="firstName"]').type('John')
             cy.get('[data-test="lastName"]').type('Doe')
             cy.get('[data-test="postalCode"]').type('12345')
             cy.get('[data-test="continue"]').click()
-
+            
             // 5. Final Overview and Finish
             cy.get('.title').should('have.text', 'Checkout: Overview')
             cy.get('[data-test="finish"]').click()
-
+            
             // 6. Final Verification
             cy.get('.complete-header').should('have.text', 'Thank you for your order!')
+            cy.get('[data-test="checkout-complete-container"]').click();
         })
     })
 })
