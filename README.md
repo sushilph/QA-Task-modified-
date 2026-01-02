@@ -1,27 +1,49 @@
-# Sauce Demo E2E Automation Suite
-This repository contains automated end-to-end (E2E) tests for the Sauce Demo website. 
-It validates core functionality including user authentication, product selection, and the full checkout process.
+# QA Automation Task – SauceDemo
 
-# Framework & Tools Used
-  Cypress: Core automation framework for browser-based testing.
-  JavaScript: Scripting language for test development.
-  GitHub Actions: CI/CD tool used to run tests automatically on every push.
-  Node.js: Runtime environment for managing project dependencies.
+## Objective
+This project demonstrates QA automation fundamentals by creating an automated test suite for a public demo website using Cypress.
 
-# Test Case,Description
-  Login - Valid Credentials,Verifies that a user can successfully log in and reach the Products page using correct credentials.
-  Login - Invalid Credentials,Validates that the system displays an appropriate error message when login fails.
-  Add to Cart,"Confirms that selecting ""Add to Cart"" updates the cart badge count correctly."
-  Full Purchase Flow,An end-to-end test covering Login -> Adding a product -> Entering Checkout info -> Completing the order.
+Website tested: https://www.saucedemo.com/
 
-# Project Structure
-├── .github/workflows/
-│   └── cypress.yml         
-├── cypress/
-│   ├── e2e/
-│   │   └── Sauce-demo.cy.js # Main test suite
-│   ├── videos/            
-│   └── screenshots/        
-├── cypress.config.js       # Cypress environment settings
-├── package.json            # Project scripts and dependencies
-└── README.md               # Project documentation
+
+## Framework & Tools Used
+- Automation Framework: Cypress
+- Language: JavaScript
+- Test Runner: Cypress Test Runner
+- Browser: Chrome (default)
+- OS: Windows
+
+
+
+## Automated Test Cases
+
+### 1. Successful Login Test
+- Login with valid credentials
+- Verify user is redirected to Products page
+
+### 2. Failed Login Test
+- Login with invalid credentials
+- Verify appropriate error message is displayed
+
+### 3. Add Product to Cart Test
+- Login with valid credentials
+- Add a product to cart
+- Verify cart badge count
+
+### 4. Checkout Product Test
+- Login
+- Add product to cart
+- Complete checkout process
+- Verify order success message
+
+---
+
+## Project Structure
+cypress/
+└── e2e/
+├── login.cy.js
+├── cart.cy.js
+└── checkout.cy.js
+└── support/
+├── commands.js
+└── e2e.js
